@@ -1,6 +1,6 @@
 import { stringify } from 'qs';
 
-const serverUrl = 'http://localhost:4567/';
+const serverUrl = 'https://flickr-proxy.herokuapp.com/';
 const defaultQuery = 'golden retriever puppies';
 
 export function fetchPhotos(params) {
