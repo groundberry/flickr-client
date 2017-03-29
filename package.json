@@ -1,5 +1,5 @@
 {
-  "name": "a_golden_every_day",
+  "name": "flickr-client",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
