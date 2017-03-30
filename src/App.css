@@ -1,5 +1,42 @@
-.App-card {
-  float: left;
-  margin: 20px;
-  width: 350px;
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  color: white;
+  height: 70px;
+  margin: 0;
+  padding-top: 30px;
+}
+
+.App-images {
+  display: block;
+  justify-content: center;
+  width: 100%;
+  background-color: #222;
+
+}
+
+.App-image img {
+  display: inline-block;
+  margin: 3px;
+  width: 100%;
+}
+
+@media (max-width: 450px) {
+
+  .App-images {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #222;
+  }
+
+  .App-image img {
+    display: inline;
+    width: 100%;
+  }
 }

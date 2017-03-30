@@ -7,7 +7,7 @@ import './index.css';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App imageUrls={imageUrls} />
+    <App />
   </ThemeProvider>,
   document.getElementById('root')
 );

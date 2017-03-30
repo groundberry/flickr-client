@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import Card from 'react-toolbox/lib/card/Card';
-// import CardMedia from 'react-toolbox/lib/card/CardMedia';
-// import CardTitle from 'react-toolbox/lib/card/CardTitle';
 import { getQueryParams, fetchPhotos, getPhotoUrl } from './utils';
 import './App.css';
 
@@ -29,15 +26,18 @@ class App extends Component {
       const photoUrl = getPhotoUrl(photo);
 
       return (
-        <div key={photo.id} className="App-photoContaner">
-          <img src={photoUrl} alt={photo.title} className="App-photoImage" />
+        <div key={photo.id} className="App-image">
+          <img src={photoUrl} alt={photo.title} />
         </div>
       );
     });
 
     return (
       <div className="App">
-        {images}
+        <h1 className="App-header">Your photos</h1>
+        <div className="App-images">
+          {images}
+        </div>
       </div>
     );
   }
