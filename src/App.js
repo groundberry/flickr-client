@@ -26,9 +26,12 @@ class App extends Component {
       const photoUrl = getPhotoUrl(photo);
 
       return (
-        <div key={photo.id} className="App-image">
-          <img src={photoUrl} alt={photo.title} />
-        </div>
+        <img
+          className="App-image"
+          src={photoUrl}
+          key={photo.id}
+          alt={photo.title}
+        />
       );
     });
 
