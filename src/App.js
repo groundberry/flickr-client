@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import { getQueryParams, fetchPhotos, getPhotoUrl } from './utils';
+import { getQueryParams, fetchPhotos } from './utils';
+import Header from './Header';
+import Images from './Images';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
+    const params = getQueryParams();
+
     this.state = {
+      ...params,
       photos: []
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(evt) {
+    this.setState({ query: evt.target.value });
   }
 
   componentDidMount() {
-    const params = getQueryParams();
+    const { photos, ...params } = this.state;
+
     fetchPhotos(params)
       .then(photos => {
         this.setState({ photos });
@@ -20,30 +32,18 @@ class App extends Component {
   }
 
   render() {
-    const { photos } = this.state;
-
-    const images = photos.map(photo => {
-      const photoUrl = getPhotoUrl(photo);
-
-      return (
-        <img
-          className="App-image"
-          src={photoUrl}
-          key={photo.id}
-          alt={photo.title}
-        />
-      );
-    });
+    const { query, photos } = this.state;
 
     return (
       <div className="App">
-        <h1 className="App-header">Your photos</h1>
-        <div className="App-images">
-          {images}
-        </div>
+        <Header
+          query={query}
+          onChange={this.handleChange}
+        />
+        <Images
+          photos={photos}
+        />
       </div>
     );
   }
 }
-
-export default App;

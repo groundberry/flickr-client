@@ -2,35 +2,3 @@
   background-color: #222;
   text-align: center;
 }
-
-.App-header {
-  color: white;
-  margin: 0;
-  padding: 30px;
-}
-
-.App-images {
-  column-gap: 10px;
-  display: block;
-  justify-content: center;
-  width: 100%;
-}
-
-.App-image {
-  display: block;
-  height: auto;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .App-images {
-    column-count: 2;
-  }
-}
-
-@media (min-width: 960px) {
-  .App-images {
-    column-count: 3;
-  }
-}
