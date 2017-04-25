@@ -1,4 +1,4 @@
-# Flickr client
+# Flickr Search
 
 A single-page app that queries Flickr for cute photos.
 
