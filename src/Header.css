@@ -1,0 +1,21 @@
+.Header {
+  color: #fff;
+  margin: 0;
+  padding: 30px;
+}
+
+@media (min-width: 620px) {
+  .Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Header-name {
+    flex: 1;
+  }
+
+  .Header-form {
+    flex: 2;
+  }
+}
