@@ -8,7 +8,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    const params = getQueryParams();
+    const query = window.location.search;
+    const params = getQueryParams(query);
 
     this.state = {
       ...params,

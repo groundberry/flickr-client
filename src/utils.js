@@ -24,9 +24,10 @@ export function getPhotoUrl(photo) {
   return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
 }
 
-export function getQueryParams() {
-  const query = window.location.search.substring(1);
-  const pairs = query.split('&').map((str) => str.split('='));
+export function getQueryParams(query) {
+  const encodedQuery = query.substring(1).replace(/\+/g, '%20');
+  const decodedQuery = decodeURIComponent(encodedQuery);
+  const pairs = decodedQuery.split('&').map((str) => str.split('='));
   return pairs.reduce((memo, pair) => {
     memo[pair[0]] = pair[1];
     return memo;
