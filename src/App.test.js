@@ -1,8 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
+import Header from './Header';
+import Images from './Images';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+describe('<App />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it('renders a <Header /> component', () => {
+    expect(wrapper.find(Header)).toHaveLength(1);
+  });
+
+  it('renders a <Images /> component', () => {
+    expect(wrapper.find(Images)).toHaveLength(1);
+  });
 });
