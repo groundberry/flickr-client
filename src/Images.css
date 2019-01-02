@@ -1,0 +1,25 @@
+.Images {
+  column-gap: 10px;
+  display: block;
+  justify-content: center;
+  width: 100%;
+}
+
+.Images-image {
+  display: block;
+  height: auto;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .Images {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 960px) {
+  .Images {
+    column-count: 3;
+  }
+}

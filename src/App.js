@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { getQueryParams, fetchPhotos } from './utils';
+import Header from './Header';
+import Images from './Images';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    const query = window.location.search;
+    const params = getQueryParams(query);
+
+    this.state = {
+      ...params,
+      photos: []
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(evt) {
+    this.setState({ query: evt.target.value });
+  }
+
+  componentDidMount() {
+    const { photos, ...params } = this.state;
+
+    fetchPhotos(params)
+      .then(photos => {
+        this.setState({ photos });
+      });
+  }
+
   render() {
+    const { query, photos } = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header
+          query={query}
+          onChange={this.handleChange}
+        />
+        <Images
+          photos={photos}
+        />
       </div>
     );
   }
 }
-
-export default App;

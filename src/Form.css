@@ -1,0 +1,47 @@
+.Form {
+  color: #fff;
+}
+
+.Form-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.Form-field,
+.Form-button {
+  border-radius: 3px;
+  border-style: none;
+  font-family: inherit;
+  font-size: 1em;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+}
+
+.Form-field {
+  background-color: #e6e6e6;
+  margin-right: 5px;
+  width: 50%;
+}
+
+.Form-button {
+  background-color: #ff4081;
+  color: #fff;
+  cursor: pointer;
+}
+
+.Form-button:hover {
+  background-color: #ff1a66;
+}
+
+@media (min-width: 620px) {
+  .Form-name {
+    display: inline;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  .Form-field,
+  .Form-button {
+    margin-bottom: 0;
+  }
+}
