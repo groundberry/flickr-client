@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flickr Client
 
-## Available Scripts
+An app to easily search images from the [Flickr API](https://www.flickr.com/services/api/) and visualize them nicely in a responsive grid.
 
-In the project directory, you can run:
+## Functionality
 
-### `npm start`
+- As a user I can see default images if no query is entered on the form.
+- As a user I can enter a query.
+- As a user I can see images based on the query I entered.
+- As a user I can enter a new query on a form.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Flickr Client app](public/img/flickr-client-app.png)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Technologies used
 
-### `npm test`
+The client side of the app is built with [React](https://facebook.github.io/react/). I used [Create React App](https://github.com/facebookincubator/create-react-app) to get it started.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For testing I used [Jest](https://github.com/facebook/jest), and [Enzyme](http://airbnb.io/enzyme/).
 
-### `npm run build`
+I used [Express](https://expressjs.com/), a [Node.js](https://nodejs.org/en/) application framework, to make requests to the Flickr API.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Challenges
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+*Dealing with Cross Origin Resource Sharing (CORS)* - Since the front end of the app lived in GitHub pages I had CORS errors when trying to make requests to an external API living in a different domain. So I built a proxy with Express to solve this issue and make sure that the request gets to the API and a response is returned to the client with the desired images.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running
 
-### `npm run eject`
+Clone this repo:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+$ git clone https://github.com/groundberry/flickr-client
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install all dependancies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+$ npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Start the server:
 
-## Learn More
+```
+$ npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run the tests:
 
-### Code Splitting
+```
+$ npm run test
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Unit tests](public/img/unit-tests.png)
